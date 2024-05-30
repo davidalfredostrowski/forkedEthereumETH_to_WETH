@@ -1,0 +1,538 @@
+
+    1  ls
+    2  sudo apt-get update
+    3  sudo apt-get install -y ca-certificates curl gnupg
+    4  sudo mkdir -p /etc/apt/keyrings
+    5  curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+    6  NODE_MAJOR=20
+    7  echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+    8  sudo apt-get update
+    9  sudo apt-get install nodejs -y
+   10  npm install web3
+   11  npm install --save-dev @nomiclabs/hardhat-ethers ethers @nomiclabs/hardhat-waffle ethereum-waffle chai
+   12  npm i @openzeppelin/contracts@4.5.0
+   13  cd forkingDemo
+   14  npx hardhat
+   15  npx hardhat init
+   16  ls
+   17  vi hardhat.config.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ubuntu@ip-172-31-26-240:~/forkingDemo$ npx hardhat console --network localhost
+Welcome to Node.js v20.14.0.
+Type ".help" for more information.
+> const signers = await ethers.getSigners();
+undefined
+> const contract =  await ethers.getContractFactory("Hello")
+undefined
+> const bal = await ethers.provider.getBalance(signers[0])
+undefined
+> const cd = await contract.deploy()
+undefined
+> const contract2 =  await ethers.getContractFactory("Check")
+undefined
+> const deployedContract  = await contract2.deploy()
+undefined
+> await deployedContract.check("0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0","0x29984d1F9055cafB02dcDd53C54B727902E44975")
+0n
+> var options = { gasPrice: 1000000000, gasLimit: 85000, nonce: 45, value: 0 };
+undefined
+> const sendValueHuman = "3.0";
+undefined
+> const myAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266";
+undefined
+> const txBuild = {
+...      from: myAddress, // from,
+...      to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+...      value: ethers.utils.parseEther(sendValueHuman), // value,
+...      nonce: 673, // nonce,
+...      gasLimit: 100000, // gas limit,
+...      gasPrice: options.gasPrice,   // gasPrice, // gas price
+...  };
+Uncaught TypeError: Cannot read properties of undefined (reading 'parseEther')
+> ethers
+{
+  version: '6.12.1',
+  decodeBytes32String: [Function: decodeBytes32String],
+  encodeBytes32String: [Function: encodeBytes32String],
+  AbiCoder: [class AbiCoder],
+  ConstructorFragment: [class ConstructorFragment extends Fragment],
+  ErrorFragment: [class ErrorFragment extends NamedFragment],
+  EventFragment: [class EventFragment extends NamedFragment],
+  Fragment: [class Fragment],
+  FallbackFragment: [class FallbackFragment extends Fragment],
+  FunctionFragment: [class FunctionFragment extends NamedFragment],
+  NamedFragment: [class NamedFragment extends Fragment],
+  ParamType: [class ParamType],
+  StructFragment: [class StructFragment extends NamedFragment],
+  checkResultErrors: [Function: checkResultErrors],
+  ErrorDescription: [class ErrorDescription],
+  Indexed: [class Indexed],
+  Interface: [class Interface],
+  LogDescription: [class LogDescription],
+  Result: [class Result extends Array],
+  TransactionDescription: [class TransactionDescription],
+  Typed: [class Typed],
+  getAddress: [Function: getAddress],
+  getIcapAddress: [Function: getIcapAddress],
+  getCreateAddress: [Function: getCreateAddress],
+  getCreate2Address: [Function: getCreate2Address],
+  isAddressable: [Function: isAddressable],
+  isAddress: [Function: isAddress],
+  resolveAddress: [Function: resolveAddress],
+  ZeroAddress: '0x0000000000000000000000000000000000000000',
+  WeiPerEther: 1000000000000000000n,
+  MaxUint256: 115792089237316195423570985008687907853269984665640564039457584007913129639935n,
+  MinInt256: -57896044618658097711785492504343953926634992332820282019728792003956564819968n,
+  MaxInt256: 57896044618658097711785492504343953926634992332820282019728792003956564819967n,
+  N: 115792089237316195423570985008687907852837564279074904382605163141518161494337n,
+  ZeroHash: '0x0000000000000000000000000000000000000000000000000000000000000000',
+  EtherSymbol: 'Ξ',
+  MessagePrefix: '\x19Ethereum Signed Message:\n',
+  BaseContract: [class BaseContract],
+  Contract: [Function: Contract],
+  ContractFactory: [class ContractFactory],
+  ContractEventPayload: [class ContractEventPayload extends ContractUnknownEventPayload],
+  ContractTransactionReceipt: [class ContractTransactionReceipt extends TransactionReceipt],
+  ContractTransactionResponse: [class ContractTransactionResponse extends TransactionResponse],
+  ContractUnknownEventPayload: [class ContractUnknownEventPayload extends EventPayload],
+  EventLog: [class EventLog extends Log],
+  UndecodedEventLog: [class UndecodedEventLog extends Log],
+  computeHmac: [Function: computeHmac] {
+    _: [Function: _computeHmac],
+    lock: [Function (anonymous)],
+    register: [Function (anonymous)]
+  },
+  randomBytes: [Function: randomBytes] {
+    _: [Function: _randomBytes],
+    lock: [Function (anonymous)],
+    register: [Function (anonymous)]
+  },
+  keccak256: [Function: keccak256] {
+    _: [Function: _keccak256],
+    lock: [Function (anonymous)],
+    register: [Function (anonymous)]
+  },
+  ripemd160: [Function: ripemd160] {
+    _: [Function: _ripemd160],
+    lock: [Function (anonymous)],
+    register: [Function (anonymous)]
+  },
+  sha256: [Function: sha256] {
+    _: [Function: _sha256],
+    lock: [Function (anonymous)],
+    register: [Function (anonymous)]
+  },
+  sha512: [Function: sha512] {
+    _: [Function: _sha512],
+    lock: [Function (anonymous)],
+    register: [Function (anonymous)]
+  },
+  pbkdf2: [Function: pbkdf2] {
+    _: [Function: _pbkdf2],
+    lock: [Function (anonymous)],
+    register: [Function (anonymous)]
+  },
+  scrypt: [AsyncFunction: scrypt] {
+    _: [AsyncFunction: _scryptAsync],
+    lock: [Function (anonymous)],
+    register: [Function (anonymous)]
+  },
+  scryptSync: [Function: scryptSync] {
+    _: [Function: _scryptSync],
+    lock: [Function (anonymous)],
+    register: [Function (anonymous)]
+  },
+  lock: [Function: lock],
+  Signature: [class Signature],
+  SigningKey: [class SigningKey],
+  id: [Function: id],
+  ensNormalize: [Function: ensNormalize],
+  isValidName: [Function: isValidName],
+  namehash: [Function: namehash],
+  dnsEncode: [Function: dnsEncode],
+  hashMessage: [Function: hashMessage],
+  verifyMessage: [Function: verifyMessage],
+  solidityPacked: [Function: solidityPacked],
+  solidityPackedKeccak256: [Function: solidityPackedKeccak256],
+  solidityPackedSha256: [Function: solidityPackedSha256],
+  TypedDataEncoder: [class TypedDataEncoder],
+  verifyTypedData: [Function: verifyTypedData],
+  getDefaultProvider: [Function: getDefaultProvider],
+  Block: [class Block],
+  FeeData: [class FeeData],
+  Log: [class Log],
+  TransactionReceipt: [class TransactionReceipt],
+  TransactionResponse: [class TransactionResponse],
+  AbstractSigner: [class AbstractSigner],
+  NonceManager: [class NonceManager extends AbstractSigner],
+  VoidSigner: [class VoidSigner extends AbstractSigner],
+  AbstractProvider: [class AbstractProvider],
+  FallbackProvider: [class FallbackProvider extends AbstractProvider],
+  JsonRpcApiProvider: [class JsonRpcApiProvider extends AbstractProvider],
+  JsonRpcProvider: [class JsonRpcProvider extends JsonRpcApiPollingProvider],
+  JsonRpcSigner: [class JsonRpcSigner extends AbstractSigner],
+  BrowserProvider: [class BrowserProvider extends JsonRpcApiPollingProvider],
+  AlchemyProvider: [class AlchemyProvider extends JsonRpcProvider],
+  AnkrProvider: [class AnkrProvider extends JsonRpcProvider],
+  ChainstackProvider: [class ChainstackProvider extends JsonRpcProvider],
+  CloudflareProvider: [class CloudflareProvider extends JsonRpcProvider],
+  EtherscanProvider: [class EtherscanProvider extends AbstractProvider],
+  InfuraProvider: [class InfuraProvider extends JsonRpcProvider],
+  InfuraWebSocketProvider: [class InfuraWebSocketProvider extends WebSocketProvider],
+  PocketProvider: [class PocketProvider extends JsonRpcProvider],
+  QuickNodeProvider: [class QuickNodeProvider extends JsonRpcProvider],
+  IpcSocketProvider: [class IpcSocketProvider extends SocketProvider],
+  SocketProvider: [class SocketProvider extends JsonRpcApiProvider],
+  WebSocketProvider: [class WebSocketProvider extends SocketProvider],
+  EnsResolver: [class EnsResolver],
+  Network: [class Network],
+  EnsPlugin: [class EnsPlugin extends NetworkPlugin],
+  EtherscanPlugin: [class EtherscanPlugin extends NetworkPlugin],
+  FeeDataNetworkPlugin: [class FeeDataNetworkPlugin extends NetworkPlugin],
+  FetchUrlFeeDataNetworkPlugin: [class FetchUrlFeeDataNetworkPlugin extends NetworkPlugin],
+  GasCostPlugin: [class GasCostPlugin extends NetworkPlugin],
+  NetworkPlugin: [class NetworkPlugin],
+  MulticoinProviderPlugin: [class MulticoinProviderPlugin],
+  SocketBlockSubscriber: [class SocketBlockSubscriber extends SocketSubscriber],
+  SocketEventSubscriber: [class SocketEventSubscriber extends SocketSubscriber],
+  SocketPendingSubscriber: [class SocketPendingSubscriber extends SocketSubscriber],
+  SocketSubscriber: [class SocketSubscriber],
+  UnmanagedSubscriber: [class UnmanagedSubscriber],
+  copyRequest: [Function: copyRequest],
+  showThrottleMessage: [Function: showThrottleMessage],
+  accessListify: [Function: accessListify],
+  computeAddress: [Function: computeAddress],
+  recoverAddress: [Function: recoverAddress],
+  Transaction: [class Transaction],
+  decodeBase58: [Function: decodeBase58],
+  encodeBase58: [Function: encodeBase58],
+  decodeBase64: [Function: decodeBase64],
+  encodeBase64: [Function: encodeBase64],
+  concat: [Function: concat],
+  dataLength: [Function: dataLength],
+  dataSlice: [Function: dataSlice],
+  getBytes: [Function: getBytes],
+  getBytesCopy: [Function: getBytesCopy],
+  hexlify: [Function: hexlify],
+  isHexString: [Function: isHexString],
+  isBytesLike: [Function: isBytesLike],
+  stripZerosLeft: [Function: stripZerosLeft],
+  zeroPadBytes: [Function: zeroPadBytes],
+  zeroPadValue: [Function: zeroPadValue],
+  defineProperties: [Function: defineProperties],
+  resolveProperties: [AsyncFunction: resolveProperties],
+  assert: [Function: assert],
+  assertArgument: [Function: assertArgument],
+  assertArgumentCount: [Function: assertArgumentCount],
+  assertNormalize: [Function: assertNormalize],
+  assertPrivate: [Function: assertPrivate],
+  makeError: [Function: makeError],
+  isCallException: [Function: isCallException],
+  isError: [Function: isError],
+  EventPayload: [class EventPayload],
+  FetchRequest: [class FetchRequest],
+  FetchResponse: [class FetchResponse],
+  FetchCancelSignal: [class FetchCancelSignal],
+  FixedNumber: [class FixedNumber],
+  getBigInt: [Function: getBigInt],
+  getNumber: [Function: getNumber],
+  getUint: [Function: getUint],
+  toBeArray: [Function: toBeArray],
+  toBigInt: [Function: toBigInt],
+  toBeHex: [Function: toBeHex],
+  toNumber: [Function: toNumber],
+  toQuantity: [Function: toQuantity],
+  fromTwos: [Function: fromTwos],
+  toTwos: [Function: toTwos],
+  mask: [Function: mask],
+  formatEther: [Function: formatEther],
+  parseEther: [Function: parseEther],
+  formatUnits: [Function: formatUnits],
+  parseUnits: [Function: parseUnits],
+  toUtf8Bytes: [Function: toUtf8Bytes],
+  toUtf8CodePoints: [Function: toUtf8CodePoints],
+  toUtf8String: [Function: toUtf8String],
+  Utf8ErrorFuncs: {
+    error: [Function: errorFunc],
+    ignore: [Function: ignoreFunc],
+    replace: [Function: replaceFunc]
+  },
+  decodeRlp: [Function: decodeRlp],
+  encodeRlp: [Function: encodeRlp],
+  uuidV4: [Function: uuidV4],
+  Mnemonic: [class Mnemonic],
+  BaseWallet: [class BaseWallet extends AbstractSigner],
+  HDNodeWallet: [class HDNodeWallet extends BaseWallet],
+  HDNodeVoidWallet: [class HDNodeVoidWallet extends VoidSigner],
+  Wallet: [class Wallet extends BaseWallet],
+  defaultPath: "m/44'/60'/0'/0/0",
+  getAccountPath: [Function: getAccountPath],
+  getIndexedAccountPath: [Function: getIndexedAccountPath],
+  isCrowdsaleJson: [Function: isCrowdsaleJson],
+  isKeystoreJson: [Function: isKeystoreJson],
+  decryptCrowdsaleJson: [Function: decryptCrowdsaleJson],
+  decryptKeystoreJsonSync: [Function: decryptKeystoreJsonSync],
+  decryptKeystoreJson: [AsyncFunction: decryptKeystoreJson],
+  encryptKeystoreJson: [AsyncFunction: encryptKeystoreJson],
+  encryptKeystoreJsonSync: [Function: encryptKeystoreJsonSync],
+  Wordlist: [class Wordlist],
+  LangEn: [class LangEn extends WordlistOwl],
+  WordlistOwl: [class WordlistOwl extends Wordlist],
+  WordlistOwlA: [class WordlistOwlA extends WordlistOwl],
+  wordlists: {
+    cz: LangCz { locale: 'cz' },
+    en: LangEn { locale: 'en' },
+    es: LangEs { locale: 'es' },
+    fr: LangFr { locale: 'fr' },
+    it: LangIt { locale: 'it' },
+    pt: LangPt { locale: 'pt' },
+    ja: LangJa { locale: 'ja' },
+    ko: LangKo { locale: 'ko' },
+    zh_cn: LangZh { locale: 'zh_cn' },
+    zh_tw: LangZh { locale: 'zh_tw' }
+  },
+  provider: HardhatEthersProvider {
+    _hardhatProvider: LazyInitializationProviderAdapter {
+      _providerFactory: [AsyncFunction (anonymous)],
+      _emitter: [EventEmitter],
+      _initializingPromise: [Promise],
+      provider: [BackwardsCompatibilityProviderAdapter]
+    },
+    _networkName: 'localhost',
+    _blockListeners: [],
+    _transactionHashListeners: Map(0) {},
+    _eventListeners: []
+  },
+  getSigner: [Function: getSigner],
+  getSigners: [Function: getSigners],
+  getImpersonatedSigner: [Function: getImpersonatedSigner],
+  getContractFactory: [Function: bound getContractFactory] AsyncFunction,
+  getContractFactoryFromArtifact: [Function: getContractFactoryFromArtifact],
+  getContractAt: [Function: getContractAt],
+  getContractAtFromArtifact: [Function: getContractAtFromArtifact],
+  deployContract: [Function: bound deployContract] AsyncFunction
+}
+> ethers.parseEther("1.0")
+1000000000000000000n
+> const txBuild = {
+...      from: myAddress, // from,
+...      to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+...      value: ethers.parseEther(sendValueHuman), // value,
+...      nonce: 673, // nonce,
+...      gasLimit: 100000, // gas limit,
+...      gasPrice: options.gasPrice,   // gasPrice, // gas price
+...  };const txBuild = {
+ };const txBuild = {
+         ^
+
+Uncaught SyntaxError: Identifier 'txBuild' has already been declared
+>      from: myAddress, // from,
+...      to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+     to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+       ^
+
+Uncaught SyntaxError: Unexpected token ':'
+>      value: ethers.parseEther(sendValueHuman), // value,
+...      nonce: 673, // nonce,
+     nonce: 673, // nonce,
+          ^
+
+Uncaught SyntaxError: Unexpected token ':'
+>      gasLimit: 100000, // gas limit,
+...      gasPrice: options.gasPrice,   // gasPrice, // gas price
+     gasPrice: options.gasPrice,   // gasPrice, // gas price
+             ^
+
+Uncaught SyntaxError: Unexpected token ':'
+>  };
+ };
+ ^
+
+Uncaught SyntaxError: Unexpected token '}'
+>
+>
+>
+> const txBuild = {
+...      from: myAddress, // from,
+...      to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+...      value: ethers.parseEther(sendValueHuman), // value,
+...      nonce: 673, // nonce,
+...      gasLimit: 100000, // gas limit,
+...      gasPrice: options.gasPrice,   // gasPrice, // gas price
+...  };
+Uncaught SyntaxError: Identifier 'txBuild' has already been declared
+> const txBuild2 = {
+...      from: myAddress, // from,
+...      to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+...      value: ethers.parseEther(sendValueHuman), // value,
+...      nonce: 673, // nonce,
+...      gasLimit: 100000, // gas limit,
+...      gasPrice: options.gasPrice,   // gasPrice, // gas price
+...  };
+undefined
+> await ethers.provider.getBalance(myAddress)
+9999993415789763571467n
+>  const txBuild3 = {
+...      from: myAddress, // from,
+...      to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+...      value: ethers.parseEther(sendValueHuman), // value,
+...      nonce: 674, // nonce,
+...      gasLimit: 100000, // gas limit,
+...      gasPrice: options.gasPrice,   // gasPrice, // gas price
+...  };
+undefined
+> await ethers.provider.getBalance(myAddress)
+9999993415789763571467n
+> await ethers.provider.getBalance(myAddress)
+9999993415789763571467n
+> await ethers.provider.getBalance(myAddress)
+9999993415789763571467n
+> const [deployer] = await ethers.getSigners();
+undefined
+> const txSend = await deployer.sendTransaction(txBuild2);
+Uncaught:
+ProviderError: Nonce too low. Expected nonce to be 675 but got 673. Note that transactions can't be queued when automining.
+    at HttpProvider.request (/home/ubuntu/forkingDemo/node_modules/hardhat/src/internal/core/providers/http.ts:90:21)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at HardhatEthersSigner.sendTransaction (/home/ubuntu/forkingDemo/node_modules/@nomicfoundation/hardhat-ethers/src/signers.ts:125:18)
+    at REPL153:1:43
+    at node:repl:645:29
+>
+>  const txBuild5 = {
+...       from: myAddress, // from,
+...       to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+...       value: ethers.parseEther(sendValueHuman), // value,
+...       nonce: 675, // nonce,
+...       gasLimit: 100000, // gas limit,
+...       gasPrice: options.gasPrice,   // gasPrice, // gas price
+...   };
+undefined
+> const txSend5 = await deployer.sendTransaction(txBuild5);
+Uncaught:
+ProviderError: Transaction gasPrice (1000000000) is too low for the next block, which has a baseFeePerGas of 8032069038
+    at HttpProvider.request (/home/ubuntu/forkingDemo/node_modules/hardhat/src/internal/core/providers/http.ts:90:21)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at HardhatEthersSigner.sendTransaction (/home/ubuntu/forkingDemo/node_modules/@nomicfoundation/hardhat-ethers/src/signers.ts:125:18)
+    at REPL163:1:45
+    at node:repl:645:29
+>  const txBuild6 = {
+...       from: myAddress, // from,
+...       to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+...       value: ethers.parseEther(sendValueHuman), // value,
+...       nonce: 676, // nonce,
+...       gasLimit: 100000, // gas limit,
+...       gasPrice: 8032069038,   // gasPrice, // gas price
+...   };
+undefined
+> const txSend6 = await deployer.sendTransaction(txBuild6);
+Uncaught:
+ProviderError: Nonce too high. Expected nonce to be 675 but got 676. Note that transactions can't be queued when automining.
+    at HttpProvider.request (/home/ubuntu/forkingDemo/node_modules/hardhat/src/internal/core/providers/http.ts:90:21)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at HardhatEthersSigner.sendTransaction (/home/ubuntu/forkingDemo/node_modules/@nomicfoundation/hardhat-ethers/src/signers.ts:125:18)
+    at REPL172:1:45
+    at node:repl:645:29
+>  const txBuild7 = {
+...       from: myAddress, // from,
+...       to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+...       value: ethers.parseEther(sendValueHuman), // value,
+...       nonce: 675, // nonce,
+...       gasLimit: 100000, // gas limit,
+...       gasPrice: 8032069038,   // gasPrice, // gas price
+...   };
+undefined
+> const txSend7 = await deployer.sendTransaction(txBuild7);
+undefined
+> await ethers.provider.getBalance(myAddress)
+9996993056507283432689n
+>  const txBuild8 = {
+...       from: myAddress, // from,
+...       to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+...       value: ethers.parseEther(sendValueHuman), // value,
+...       nonce: 676, // nonce,
+...       gasLimit: 100000, // gas limit,
+...       gasPrice: 8032069038,   // gasPrice, // gas price
+...   };
+undefined
+> await ethers.provider.getBalance(myAddress
+> await ethers.provider.getBalance(myAddress)
+9996993056507283432689n
+> const txSend8 = await deployer.sendTransaction(txBuild8);
+undefined
+> await ethers.provider.getBalance(myAddress)
+9993992834573183843711n
+> const contract =  await ethers.getContractFactory("Check")
+Uncaught SyntaxError: Identifier 'contract' has already been declared
+> const contract3 =  await ethers.getContractFactory("Check")
+undefined
+> const deployedContract  = await contract3.deploy()
+Uncaught SyntaxError: Identifier 'deployedContract' has already been declared
+> const deployedContract3  = await contract3.deploy()
+undefined
+> await deployedContract3.check("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",myAdress)
+Uncaught ReferenceError: myAdress is not defined
+    at REPL198:1:108
+> await deployedContract3.check("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",myAddress)
+6000000000000000000n
+> const txBuild9 = {
+...       from: myAddress, // from,
+...       to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+...       value: ethers.parseEther(sendValueHuman), // value,
+...       nonce: 677, // nonce,
+...       gasLimit: 100000, // gas limit,
+...       gasPrice: 8032069038,   // gasPrice, // gas price
+...   };
+undefined
+> const txSend9 = await deployer.sendTransaction(txBuild9);
+Uncaught:
+ProviderError: Nonce too low. Expected nonce to be 678 but got 677. Note that transactions can't be queued when automining.
+    at HttpProvider.request (/home/ubuntu/forkingDemo/node_modules/hardhat/src/internal/core/providers/http.ts:90:21)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at HardhatEthersSigner.sendTransaction (/home/ubuntu/forkingDemo/node_modules/@nomicfoundation/hardhat-ethers/src/signers.ts:125:18)
+    at REPL208:1:45
+    at node:repl:645:29
+>  const txBuild10 = {
+...       from: myAddress, // from,
+...       to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+...       value: ethers.parseEther(sendValueHuman), // value,
+...       nonce: 678, // nonce,
+...       gasLimit: 100000, // gas limit,
+...       gasPrice: 8032069038,   // gasPrice, // gas price
+...   };
+undefined
+> const txSend10 = await deployer.sendTransaction(txBuild10);
+undefined
+> await ethers.provider.getBalance(myAddress)
+9990991261317993200147n
+> await deployedContract3.check("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",myAddress)
+9000000000000000000n
+>
