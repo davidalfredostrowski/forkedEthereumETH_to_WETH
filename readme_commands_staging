@@ -1,3 +1,74 @@
+ubuntu@ip-172-31-25-97:~/forkingDemo$ history
+    1  ls
+    2  sudo apt-get update
+    3  sudo apt-get install -y ca-certificates curl gnupg
+    4  history
+    5  sudo mkdir -p /etc/apt/keyrings
+    6  curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+    7  NODE_MAJOR=20
+    8  echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+    9  sudo apt-get update
+   10  sudo apt-get install nodejs -y
+   11  npm install web3
+   12  npm install --save-dev @nomiclabs/hardhat-ethers ethers @nomiclabs/hardhat-waffle ethereum-waffle chai
+   13  npm i @openzeppelin/contracts@4.5.0
+   14  mkdir forkingDemo
+   15  cd forkingDemo/
+   16  history
+   17  cd ..
+   18  cd forkingDemo/
+   19  ls
+   20  vi hardhat.config.js
+   21  history
+   22  npx hardhat console --network localhost
+   23  jls
+   24  ls
+   25  cd contracts/
+   26  ls
+   27  vi Lock.sol
+   28  cd ..
+   29  npx hardhat console --network localhost
+   30  ls
+   31  cd contracts
+   32  ls
+   33  vi Check.sol
+   34  cd ..
+   35  history
+   36  ls
+   37  npx hardhat console --network localhost
+   38  history
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ubuntu@ip-172-31-25-97:~/forkingDemo$ npx hardhat console --network localhost
 Welcome to Node.js v20.14.0.
 Type ".help" for more information.
