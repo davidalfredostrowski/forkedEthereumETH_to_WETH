@@ -21,6 +21,8 @@
 
 
 
+ubuntu@ip-172-31-25-97:~/forkingDemo$ npx hardhat node --hostname localhost
+
 
 
 
