@@ -23,33 +23,6 @@
 
 ubuntu@ip-172-31-25-97:~/forkingDemo$ npx hardhat node --hostname localhost
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ubuntu@ip-172-31-26-240:~/forkingDemo$ npx hardhat console --network localhost
 Welcome to Node.js v20.14.0.
 Type ".help" for more information.
