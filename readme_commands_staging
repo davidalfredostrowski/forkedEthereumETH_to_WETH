@@ -1,0 +1,174 @@
+ubuntu@ip-172-31-25-97:~/forkingDemo$ npx hardhat console --network localhost
+Welcome to Node.js v20.14.0.
+Type ".help" for more information.
+> const signers = await ethers.getSigners();
+undefined
+> const bal = await ethers.provider.getBalance(signers[0])
+undefined
+> const contract2 =  await ethers.getContractFactory("Check")
+undefined
+> const deployedContract  = await contract2.deploy()
+undefined
+>
+> await deployedContract.check("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2","0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
+0n
+> var options = { gasPrice: 1000000000, gasLimit: 85000, nonce: 45, value: 0 };
+undefined
+> const sendValueHuman = "3.0";
+undefined
+>
+> const  myAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+undefined
+>  const txBuild = {
+...   from: myAddress, // from,
+...   to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+...   value: ethers.parseEther(sendValueHuman), // value,
+...   nonce: 678, // nonce,
+...   gasLimit: 100000, // gas limit,
+...   gasPrice: 8032069038,   // gasPrice, // gas price
+...    };
+undefined
+>
+> const txSend = await deployer.sendTransaction(txBuild);
+Uncaught ReferenceError: deployer is not defined
+    at REPL20:1:28
+> const [deployer] = await ethers.getSigners();
+undefined
+> await ethers.provider.getBalance(myAddress)
+9999998715356959688456n
+> await deployedContract.check("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2","0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
+0n
+> await ethers.provider.getBalance(myAddress)
+9999998715356959688456n
+> const txSend1 = await deployer.sendTransaction(txBuild);
+Uncaught:
+ProviderError: Nonce too high. Expected nonce to be 676 but got 678. Note that transactions can't be queued when automining.
+    at HttpProvider.request (/home/ubuntu/forkingDemo/node_modules/hardhat/src/internal/core/providers/http.ts:90:21)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at HardhatEthersSigner.sendTransaction (/home/ubuntu/forkingDemo/node_modules/@nomicfoundation/hardhat-ethers/src/signers.ts:125:18)
+    at REPL25:1:45
+    at node:repl:645:29
+>
+>  const txBuild2 = {
+...   from: myAddress, // from,
+...   to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+...   value: ethers.parseEther(sendValueHuman), // value,
+...   nonce: 676, // nonce,
+...   gasLimit: 100000, // gas limit,
+...   gasPrice: 8032069038,   // gasPrice, // gas price
+...    };
+undefined
+> const txSend2   = await deployer.sendTransaction(txBuild2);
+undefined
+> await deployedContract.check("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2","0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
+3000000000000000000n
+> await ethers.provider.getBalance(myAddress)
+9996998356074479549678n
+>  const txBuild3 = {
+...   from: myAddress, // from,
+...   to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+...   value: ethers.parseEther(sendValueHuman), // value,
+...   nonce: 677, // nonce,
+...   gasLimit: 100000, // gas limit,
+...   gasPrice: 8032069038,   // gasPrice, // gas price
+...    };
+undefined
+> const txSend3   = await deployer.sendTransaction(txBuild3);
+undefined
+> await deployedContract.check("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2","0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
+6000000000000000000n
+> await ethers.provider.getBalance(myAddress)
+9993998134140379960700n
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pragma solidity ^0.8.9;
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+
+
+contract Check {
+        function check(address _token, address user) view public returns(uint256){
+                return IERC20(_token).balanceOf(user);
+        }
+}
+
+
+0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2    WETH contract
+
+
+
+0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266    my account
+
+
+
+
+await deployedContract.check("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2","0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
+
+
+
+const  myAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+
+
+ const txBuild = {
+  from: myAddress, // from,
+  to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+  value: ethers.parseEther(sendValueHuman), // value,
+  nonce: 678, // nonce,
+  gasLimit: 100000, // gas limit,
+  gasPrice: 8032069038,   // gasPrice, // gas price
+   };
+
+const txSend = await deployer.sendTransaction(txBuild);
+
+
+
+ const txBuild2 = {
+  from: myAddress, // from,
+  to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+  value: ethers.parseEther(sendValueHuman), // value,
+  nonce: 676, // nonce,
+  gasLimit: 100000, // gas limit,
+  gasPrice: 8032069038,   // gasPrice, // gas price
+   };
+
+
+
+
+
+ const txBuild3 = {
+  from: myAddress, // from,
+  to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+  value: ethers.parseEther(sendValueHuman), // value,
+  nonce: 677, // nonce,
+  gasLimit: 100000, // gas limit,
+  gasPrice: 8032069038,   // gasPrice, // gas price
+   };
+
+
