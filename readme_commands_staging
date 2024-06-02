@@ -242,5 +242,40 @@ const txSend = await deployer.sendTransaction(txBuild);
   gasPrice: 8032069038,   // gasPrice, // gas price
    };
 
+metamask support:
+
+
+ubuntu@ip-172-31-25-97:~/forkingDemo$ npx hardhat node --hostname ec2-34-221-109-253.us-west-2.compute.amazonaws.com
+
+cat hardhat.config.js
+//require("@nomicfoundation/hardhat-toolbox");
+//;
+//require('@nomiclabs/hardhat-waffle');
+require('@nomicfoundation/hardhat-chai-matchers');
+
+/** @type import('hardhat/config').HardhatUserConfig */
+module.exports = {
+        networks: {
+                hardhat: {
+                localhost: {
+                        url: "http://ec2-34-221-109-253.us-west-2.compute.amazonaws.com:8545"
+            ,           chainID: 31337
+
+                }
+,
+                        forking: {
+                                url: "https://cloudflare-eth.com/",
+
+                        }
+
+                }
+   },
+
+        solidity: "0.8.18",
+};
+
+
+
+
 
 https://www.reddit.com/r/HEXcrypto/comments/1au5rvk/metamask_is_confusing/
