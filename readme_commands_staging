@@ -243,3 +243,4 @@ const txSend = await deployer.sendTransaction(txBuild);
    };
 
 
+https://www.reddit.com/r/HEXcrypto/comments/1au5rvk/metamask_is_confusing/
